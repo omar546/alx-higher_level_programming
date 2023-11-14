@@ -6,12 +6,11 @@ import os
 
 
 class Base:
-    """Representing the base class
+    """the base class is the base of all shapes
 
     Note:
         The class is used to manage id attribute
-        in all your future classes and to avoid duplicating
-        the same code (by extension, same bugs)
+        in all your future shapes classes
     """
 
     __nb_objects = 0
@@ -31,11 +30,12 @@ class Base:
 
     @staticmethod
     def to_json_string(list_dictionaries):
-        """Produces the JSON string representation
-        of list_dictionaries
+        """
+        creates the JSON string representation
+        for list_dictionaries
 
         Args:
-            list_dictionaries (list): A collection of dictionaries
+            list_dictionaries (list): some of dictionaries
 
         """
         if list_dictionaries is None or list_dictionaries == " ":
@@ -44,8 +44,8 @@ class Base:
 
     @classmethod
     def save_to_file(cls, list_objs):
-        """Saves the JSON string representation of
-        list_objs to a file
+        """Save the string representation of
+        Json list_objs to file
 
         Args:
             list_objs: A collection of instances inheriting from Base
@@ -61,11 +61,11 @@ class Base:
 
     @staticmethod
     def from_json_string(json_string):
-        """Decodes the JSON string
-        representation json_string into a list
+        """Decode the string
+        representation json_string into list
 
         Args:
-            json_string (str): A string depicting a list
+            json_string (str): A string from list
             of dictionaries
 
         """
@@ -77,10 +77,10 @@ class Base:
 
     @classmethod
     def create(cls, **dictionary):
-        """Generates an instance with all attributes pre-configured
+        """Creates an instance with all attributes pre-set
 
         Args:
-            **dictionary (pointer): Essentially a double pointer to a
+            **dictionary (pointer): a double pointer to a
             dictionary
 
         """
@@ -92,9 +92,9 @@ class Base:
 
     @classmethod
     def load_from_file(cls):
-        """A class method returning a
+        """
+        method to return a
         list of instances
-
         """
         list_instance = []
         file_name = f"{cls.__name__}.json"

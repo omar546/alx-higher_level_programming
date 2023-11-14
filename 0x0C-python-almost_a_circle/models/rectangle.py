@@ -5,7 +5,8 @@ from models.base import Base
 
 
 class Rectangle(Base):
-    """Rectangle class (inherits) the base class
+    """
+    Rectangle class (inherits) the base class
 
     Args:
         Base(model): the model (inherited)
