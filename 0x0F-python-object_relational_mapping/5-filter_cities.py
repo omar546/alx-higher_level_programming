@@ -23,8 +23,7 @@ if __name__ == "__main__":
         """,argv[4])
     result = cursor.fetchall()
     if result is not None:
-        for line in result:
-            print(line)
+        print(", ".join([line[1] for line in result]))
 
     cursor.close()
     connection.close()
