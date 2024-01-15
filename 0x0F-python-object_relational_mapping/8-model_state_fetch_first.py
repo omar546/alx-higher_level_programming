@@ -1,6 +1,6 @@
 
 #!/usr/bin/python3
-"""List all states"""
+"""print fist state via SQLAlchemy"""
 from sys import argv
 from model_state import Base, State
 from sqlalchemy import (create_engine)
@@ -18,5 +18,5 @@ if __name__ == "__main__":
         print("{}: {}".format(state.id, state.name))
     else:
         print("Nothing")
-        
+
     sessionMaker().close()
