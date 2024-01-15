@@ -12,8 +12,7 @@ if __name__ == "__main__":
     result = cursor.fetchall()
     if line is not none:
         for line in result:
-            if line[1].startswith("N"):
-                print(line)
+            print(line)
     cursor.close()
     connection.close()
     
