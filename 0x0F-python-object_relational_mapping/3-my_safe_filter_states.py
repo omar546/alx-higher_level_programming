@@ -10,7 +10,7 @@ if __name__ == "__main__":
     cursor = connection.cursor()
     cursor.execute("SELECT * FROM states WHERE name LIKE BINARY %s ORDER BY states.id ASC",argv[4])
     result = cursor.fetchall()
-    if line is not none:
+    if result is not None:
         for line in result:
             print(line)
     cursor.close()

@@ -21,7 +21,7 @@ if __name__ == "__main__":
                 cities.id ASC
         """)
     result = cursor.fetchall()
-    if line is not none:
+    if result is not None:
         for line in result:
             print(line)
 
