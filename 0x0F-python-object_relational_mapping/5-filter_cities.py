@@ -20,11 +20,10 @@ if __name__ == "__main__":
             WHERE states.name LIKE BINARY %s
             ORDER BY
                 cities.id ASC
-        """,argv[4])
+        """,(argv[4], ))
     result = cursor.fetchall()
     if result is not None:
-        print(", ".join([line[1] for line in result]))
-
+        print(", ".join(map(lambda x: x[0], result)))
     cursor.close()
     connection.close()
     
