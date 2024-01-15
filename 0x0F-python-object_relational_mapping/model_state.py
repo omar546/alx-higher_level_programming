@@ -1,13 +1,26 @@
 #!/usr/bin/python3
 """
-link class to table in database 
+defines a State class and
+a Base class for MySQLAlchemy ORM.
 """
-from sys import argv
-from model_state import Base, State
 
-from sqlalchemy import (create_engine)
+from sqlalchemy import Column, Integer, String
+from sqlalchemy.ext.declarative import declarative_base
 
-if __name__ == "__main__":
-    engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'.format(argv[1], argv[2], argv[3]), pool_pre_ping=True)
-    Base.metadata.create_all(engine)
+Base = declarative_base()
+
+
+class State(Base):
+    """State class
+
+    Attributes:
+        __tablename__ (str): The table name of the class
+        id (int): The State id of the class
+        name (str): The State name of the class
+
+    """
+    __tablename__ = 'states'
+
+    id = Column(Integer, primary_key=True)
+    name = Column(String(128), nullable=False)
     
