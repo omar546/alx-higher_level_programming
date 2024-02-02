@@ -1,17 +1,21 @@
 #!/usr/bin/python3
-"""List all states with 'a' via SQLAlchemy"""
-from sys import argv
+"""list all state objects - sqlalchemy"""
 from model_state import Base, State
-from sqlalchemy import (create_engine)
 from sqlalchemy.orm import sessionmaker
+from sqlalchemy import (create_engine)
+import sys
 
-if __name__ == "__main__":
-    engine = create_engine(
-        'mysql+mysqldb://{}:{}@localhost/{}'
-        .format(argv[1], argv[2],
-                argv[3]), pool_pre_ping=True)
-    Base.mmekkawy/alx-higher_level_programming/0x0F-python-object_relational_mapping/7-model_state_fetch_all.pyetadata.create_all(engine)
-    sessionMaker = sessionmaker(bind=engine)
-    for state in sessionMaker().query(State).filter(State.name.like('%a%')).order_by(State.id).all():
-        print("{}: {}".format(state.id, state.name))
-    
+
+if __name__ == '__main__':
+    eng = create_engine('mysql+mysqldb://{}:{}@localhost/{}'
+                           .format(sys.argv[1], sys.argv[2], sys.argv[3]))
+    maker = sessionmaker(bind=eng)
+    session = maker()
+    states = session.query(State)\
+                    .filter(State.name.contains('a'))\
+                    .order_by(State.id)
+    if (states is not None):
+        for state in states:
+            print('{}: {}'.format(state.id, state.name))
+    else:
+        print('Nothing')
