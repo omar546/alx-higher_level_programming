@@ -13,7 +13,6 @@ if __name__ == "__main__":
                    cities.id, cities.name, states.name
                    FROM
                    cities
-                   
                 JOIN
                    states
                    ON
