@@ -8,12 +8,12 @@ import sys
 
 if __name__ == '__main__':
     eng = create_engine('mysql+mysqldb://{}:{}@localhost/{}'
-                           .format(sys.argv[1], sys.argv[2], sys.argv[3]))
+                        .format(sys.argv[1], sys.argv[2], sys.argv[3]))
     maker = sessionmaker(bind=eng)
     session = maker()
     states = session.query(State)\
-                    .filter(State.name.contains('a'))\
-                    .order_by(State.id)
+    .filter(State.name.contains('a'))\
+    .order_by(State.id)
     if (states is not None):
         for state in states:
             print('{}: {}'.format(state.id, state.name))
