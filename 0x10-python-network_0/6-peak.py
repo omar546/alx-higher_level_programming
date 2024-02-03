@@ -3,7 +3,6 @@
 
 def find_peak(list_of_integers):
     """Return the peak of a list of integers."""
-
     size = len(list_of_integers)
     if size == 0:
         return None
@@ -11,12 +10,17 @@ def find_peak(list_of_integers):
         return list_of_integers[0]
     elif size == 2:
         return max(list_of_integers)
-    middle = int(size / 2)
+    
+    middle = size // 2
     peak = list_of_integers[middle]
-    if peak > list_of_integers[middle + 1]\
-            and peak > list_of_integers[middle - 1]:
+
+    # Handling edge cases for index out of bounds
+    left_neighbor = list_of_integers[middle - 1] if middle - 1 >= 0 else float("-inf")
+    right_neighbor = list_of_integers[middle + 1] if middle + 1 < size else float("-inf")
+
+    if peak > left_neighbor and peak > right_neighbor:
         return peak
-    elif peak < list_of_integers[middle - 1]:
+    elif peak < left_neighbor:
         return find_peak(list_of_integers[:middle])
     else:
         return find_peak(list_of_integers[middle + 1:])
