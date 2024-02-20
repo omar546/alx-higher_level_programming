@@ -2,7 +2,7 @@
 const process = require('process');
 const request = require('request');
 
-let getfrom = process.argv[2];
+const getfrom = process.argv[2];
 
 request(getfrom, function (error, response, body) {
   if (error != null) {

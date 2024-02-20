@@ -2,8 +2,8 @@
 const process = require('process');
 const filesystem = require('fs');
 
-let file = process.argv[2];
-let input = process.argv[3];
+const file = process.argv[2];
+const input = process.argv[3];
 
 filesystem.writeFile(file, input, 'utf8', function (err, data) {
   if (err != null) {

@@ -2,7 +2,7 @@
 const pr = require('process');
 const filesystem = require('fs');
 
-let file = pr.argv[2];
+const file = pr.argv[2];
 
 filesystem.readFile(file, 'utf8', function (err, data) {
   if (err != null) {

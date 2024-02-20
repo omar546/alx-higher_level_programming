@@ -2,9 +2,9 @@
 const process = require('process');
 const request = require('request');
 
-let getfrom = process.argv[2];
+const getfrom = process.argv[2];
 let data;
-let got = {};
+const got = {};
 
 request(getfrom, function (error, response, body) {
   if (error != null) {
@@ -12,8 +12,8 @@ request(getfrom, function (error, response, body) {
   } else {
     data = JSON.parse(body);
     data.forEach(function (result) {
-      if (result['completed'] === true) {
-        let userid = result['userId'];
+      if (result.completed === true) {
+        const userid = result.userId;
         if (!(userid in got)) {
           got[userid] = 0;
         }
